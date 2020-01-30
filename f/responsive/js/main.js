@@ -1,3 +1,5 @@
+const url = 'http://localhost/zox-bk/';
+
 var objblog = {
     init:function(){
         objblog.tag();
@@ -5,13 +7,14 @@ var objblog = {
     },
     tag:function(){
         $('#my-tag-list').tags({
-            tagData:["boilerplate", "tags"],
+            /* tagData:["boilerplate", "tags"],
             suggestions:["basic", "suggestions"],
-            excludeList:["not", "these", "words"],
+            excludeList:["not", "these", "words"], */
             beforeAddingTag: function(tag){ 
                 let opcion = confirm("Clicka en Aceptar o Cancelar");
                 if (opcion == true) {
                     console.log(tag);
+                    $(".tag").val($(".tag").val()+tag+"-");
                 } else {
                     console.log("Cancelado");
                     removeTag(tag);
@@ -20,16 +23,30 @@ var objblog = {
         });
     },
     url:function(){
-        $(".title").change(function(){
-            let url = $(this).val();
-            $(".url").val(url);
+        $(".title").keyup(function(){
+            let title = $(this).val();
+            $.ajax({
+                data: JSON.stringify({ url : title}),
+                type: 'POST',
+                url: url + 'api/generate_url',
+                dataType: 'JSON'
+            }).done(function(data){
+                $(".url").val(data.url);
+            });
         });
     },
     btn:function(){
         let tag = $('#my-tag-list').tags().getTags();
-        tag.forEach(function(element){
-            console.log(element);
+        $.ajax({
+            type: 'POST',
+            url: url + 'api/post',
+            dataType: 'JSON'
+        }).done(function(data){
+
         });
+        /* tag.forEach(function(element){
+            console.log(element);
+        }); */
     }
 }
 

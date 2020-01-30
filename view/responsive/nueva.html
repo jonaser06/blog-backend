@@ -19,91 +19,91 @@
     </section>
 
     <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4 ml-auto">
-                    <div class="content">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-block btn-success">Publicar</button>
-                            </div>
-                            <div class="col-md-6">
-                                <button type="button" class="btn btn-block btn-danger">Cancelar</button>
+        <form method="POST" action="api/post">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 ml-auto">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-block btn-success">Publicar</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-block btn-danger">Cancelar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Principal</h3>
-                        </div>
-                        <form role="form">
+                <br>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Principal</h3>
+                            </div>
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Titulo</label>
-                                    <input type="text" class="form-control title">
+                                    <input type="text" name="title" class="form-control title">
                                 </div>
                                 <div class="form-group">
                                     <label>Bajada</label>
-                                    <input type="text" class="form-control bajada">
+                                    <input type="text" name="bajada" class="form-control bajada">
                                 </div>
                                 <div class="form-group">
                                     <label>Url</label>
-                                    <input type="text" class="form-control url">
+                                    <input type="text" name="url" class="form-control url">
                                 </div>
                                 <label>Tags</label>
                                 <div id="my-tag-list" class="tag-list"></div>
+                                <input type="hidden" name="tag" class="tag">
                             </div>
                             
                             <div class="card-footer">
                                 <!-- <button onclick="objblog.btn()" class="btn btn-primary">Submit</button> -->
                             </div>
-                        </form>
-                        <button onclick="objblog.btn()" class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <!-- imagen -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Imagen Principal</h3>
                         </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" id="">Upload</span>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- imagen -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Imagen Principal</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="">Upload</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer">
+                                
+                            </div>
                         </div>
-                        <div class="card-footer">
+                        <!-- Categoria -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Categoria</h3>
+                            </div>
+                            <div class="card-body">
 
-                        </div>
-                    </div>
-                    <!-- Categoria -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Categoria</h3>
-                        </div>
-                        <div class="card-body">
+                            </div>
+                            <div class="card-footer">
 
-                        </div>
-                        <div class="card-footer">
-
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
