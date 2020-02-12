@@ -1,15 +1,27 @@
-const url = 'http://localhost/zox-bk/';
+//const url = 'http://localhost/api/';
+const url = 'http://api.bitsforcode.xyz/';
 
 var objblog = {
     init:function(){
-        objblog.tag();
+        objblog.tag("");
         objblog.url();
+        objblog.buscatags();
     },
-    tag:function(){
+    buscatags:function(){
+        var buscatags = ["uno","dos","tres"];
+        $("body").on("keyup",".tags-input",function(){
+            $(this).autocomplete({
+                source: buscatags
+            });
+        });
+    },
+    tag:function(result){
+        console.log(result);
         $('#my-tag-list').tags({
             /* tagData:["boilerplate", "tags"],
             suggestions:["basic", "suggestions"],
             excludeList:["not", "these", "words"], */
+            /* suggestions:result, */
             beforeAddingTag: function(tag){ 
                 let opcion = confirm("Clicka en Aceptar o Cancelar");
                 if (opcion == true) {
@@ -28,10 +40,11 @@ var objblog = {
             $.ajax({
                 data: JSON.stringify({ url : title}),
                 type: 'POST',
-                url: url + 'api/generate_url',
+                url: url + '/generate_url',
                 dataType: 'JSON'
             }).done(function(data){
-                $(".url").val(data.url);
+
+                $(".url").val(data.data);
             });
         });
     },
