@@ -43,7 +43,7 @@ var objblog = {
                 url: url + 'generate_url',
                 dataType: 'JSON'
             }).done(function(data){
-
+                console.log(data);
                 $(".url").val(data.data);
             });
         });
