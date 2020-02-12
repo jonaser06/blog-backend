@@ -40,7 +40,7 @@ var objblog = {
             $.ajax({
                 data: JSON.stringify({ url : title}),
                 type: 'POST',
-                url: url + '/generate_url',
+                url: url + 'generate_url',
                 dataType: 'JSON'
             }).done(function(data){
 
