@@ -6,6 +6,16 @@ var objblog = {
         objblog.tag("");
         objblog.url();
         objblog.buscatags();
+        objblog.editor();
+    },
+    test:function(){
+        var text = $('#some-textarea').summernote('code');
+        console.log(text);
+    },
+    editor:function(){
+        $(function () {
+            $('#some-textarea').summernote();
+        })
     },
     buscatags:function(){
         var buscatags = ["uno","dos","tres"];
@@ -16,7 +26,6 @@ var objblog = {
         });
     },
     tag:function(result){
-        console.log(result);
         $('#my-tag-list').tags({
             /* tagData:["boilerplate", "tags"],
             suggestions:["basic", "suggestions"],
