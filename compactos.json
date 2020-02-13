@@ -1,0 +1,45 @@
+/* categorias */
+{
+    "_id": "",
+    "id":"",
+    "status":"",
+    "descripcion":"",
+    "titulo":"",
+    "url":""
+}
+/* notas */
+{
+    "_id": "",
+    "id":"",
+    "bajada":"",
+    "categoria":{
+        "id":"",
+        "nombre":"",
+        "url":
+    },
+    "contenido":"",
+    "estado":"",
+    "img":{
+        "fid":"",
+        "ext":"jpg",
+        "path":"",
+        "description":""
+    },
+    "video":{
+        "vid":"",
+        "ext":"",
+        "path":"",
+        "descripcion":""
+    },
+    "publicidad":"",
+    "fecha":"",
+    "tags":{
+        "id":"",
+        "tid":"",
+        "nombre":"",
+        "url":""
+    },
+    "tipo":"",
+    "titulo_seo":"",
+    "titulo":""
+}

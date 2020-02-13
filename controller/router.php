@@ -5,36 +5,24 @@ require_once './controller/home.controller.php';
 \Slim\Slim::registerAutoloader();
 $app = new \Slim\Slim();
 
-#API
-$app->post('/api/generate_url/','generate_url');
-$app->post('/api/post/','post');
-
-function generate_url(){
-    $request = \Slim\Slim::getInstance()->request();
-    $getbody = json_decode($request->getBody());
-    $url = $getbody->url;
-    ApiController::generateUrl($url);
-}
-
-function post(){
-    var_dump($_POST);
-}
-
 #ROUTES
-$app->get('/','index');
-$app->get('/nueva-nota/','nuevanota');
-
-function index(){
+$app->get('/', function(){
     $render = indexController::index();
     echo $render;
-}
+});
 
-function nuevanota(){
+$app->get('/nueva-nota/',function(){
     $render = notaController::NuevaNota();
     echo $render;
-}
+});
 
-
+#POST
+$app->post('/publicar/',function(){
+    var_dump($_POST);
+    exit;
+    $render = notaController::NuevaNota();
+    echo $render;
+});
 
 $app->run();
 
