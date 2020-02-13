@@ -10,12 +10,16 @@ var objblog = {
     },
     test:function(){
         var text = $('#some-textarea').summernote('code');
+        var contenido = $(".contenido").val(text);
         console.log(text);
     },
     editor:function(){
-        $(function () {
-            $('#some-textarea').summernote();
-        })
+        $('#some-textarea').summernote();
+
+        $("body").on("keyup",".note-editable",function(){
+            var text = $('#some-textarea').summernote('code');
+            $(".contenido").val(text);
+        });
     },
     buscatags:function(){
         var buscatags = ["uno","dos","tres"];
