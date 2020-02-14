@@ -556,7 +556,7 @@
             if (options == null) {
                 options = {};
             }
-            return "<input type='text' class='form-control tags-input input-" + options.tagSize + "' />";
+            return "<input type='text' class='form-control tags-input input-" + options.tagSize + "' required />";
         };
     }).call(this);
     (function() {

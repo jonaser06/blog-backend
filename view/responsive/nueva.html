@@ -45,31 +45,31 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Titulo</label>
-                                    <input type="text" name="title" class="form-control title">
+                                    <input type="text" name="title" class="form-control title" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Bajada</label>
-                                    <input type="text" name="bajada" class="form-control bajada">
+                                    <input type="text" name="bajada" class="form-control bajada" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Url</label>
-                                    <input type="text" name="url" class="form-control url">
+                                    <input type="text" name="url" class="form-control url" required>
                                 </div>
                                 <label>Tags</label>
                                 <div id="my-tag-list" class="tag-list"></div>
-                                <input type="hidden" name="tag" class="tag">
+                                <input type="hidden" name="tag" class="tag" required>
 
                                 <div class="form-group">
                                     <label>Contenido</label>
                                     <div class="text-area">
                                         <textarea id="some-textarea" placeholder="Enter text ..." style="styles to copy to the iframe"></textarea>
-                                        <input type="hidden" name="contenido" class="contenido">
+                                        <input type="hidden" name="contenido" class="contenido" required>
                                     </div>
                                 </div>
                             </div>
                             
                             <div class="card-footer">
-                                <input onclick="objblog.test()" class="btn btn-primary" type="button" value="test">
+                                <!-- <input onclick="objblog.test()" class="btn btn-primary" type="button" value="test"> -->
                             </div>
                         </div>
                     </div>

@@ -30,6 +30,7 @@ var objblog = {
         });
     },
     tag:function(result){
+        var taglist = [];
         $('#my-tag-list').tags({
             /* tagData:["boilerplate", "tags"],
             suggestions:["basic", "suggestions"],
@@ -38,12 +39,29 @@ var objblog = {
             beforeAddingTag: function(tag){ 
                 let opcion = confirm("Clicka en Aceptar o Cancelar");
                 if (opcion == true) {
-                    console.log(tag);
-                    $(".tag").val($(".tag").val()+tag+"-");
+                    taglist.push(tag);
+                    console.log(taglist);
+                    $(".tag").val(taglist);
+                    /* quitando la obligatoriedad del campo tag */
+                    $(".tags-input").removeAttr("required");
                 } else {
                     console.log("Cancelado");
                     removeTag(tag);
                 }
+            },
+            beforeDeletingTag: function (tag){
+                var taglist2 = [];
+                taglist.forEach(function(i){
+                    if( tag != i ){
+                        taglist2.push(i);
+                    }
+                });
+                taglist = taglist2;
+                if(Object.keys(taglist).length == 0){
+                    $('.tags-input').prop("required", true);
+                }
+                console.log(taglist);
+                $(".tag").val(taglist);
             }
         });
     },
