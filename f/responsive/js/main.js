@@ -7,6 +7,72 @@ var objblog = {
         objblog.url();
         objblog.buscatags();
         objblog.editor();
+        objblog.inputs();
+        objblog.leyenda();
+        objblog.fecha();
+    },
+    fecha: function(){
+        $('#datepicker').datepicker({
+            
+            autoclose: true,
+            format: 'yyyy-mm-dd'/* ,
+            startDate: fecha, */
+        }).datepicker("setDate", new Date());
+    },
+    leyenda: function(){
+        $("body").on("keyup",".leyenda-input",function(){
+            var text = $(this).val();
+            $(".leyendaImput").val(text);
+            $(".leyenda").html(text);
+        });
+
+        $(".btn-eliminarImg").on("click", function(){
+            $(this).css("display","none");
+            $("#zone-upload").css("display","block");
+            $( ".previewImg" ).remove();
+        });
+    },
+    inputs: function(){
+        document.getElementById('zone-upload').onchange = function () {
+            console.log('Selected file: ' + this.value);
+
+            var data = new FormData();
+            var files = $('#zone-upload')[0].files[0];
+            data.append("image",files);
+            /* preview */
+            var preview = '';
+
+            $.ajax({
+                type: "POST",
+                url: url + 'upload_image',
+                data:  data,
+                enctype: 'multipart/form-data',
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,   // tell jQuery not to set contentType
+                dataType: "json",
+                success: function(response)
+                {
+                    $(".pathImage").val(response.data[0].path);
+                    $(".subiendoimg").css("display","none");
+                    var urlimg = response.data[0].base+response.data[0].path+"-0x0.jpg";
+                    preview += '<div class="previewImg">';
+                    preview += '<img src="'+urlimg+'">';
+                    preview += '</div>';
+                    $("#upload-image-btn").append(preview);
+                    $(".btn-eliminarImg").css("display","block");
+                    $(".leyenda").css("margin-bottom","10px");
+                },
+                error: function(err){
+                    console.log(err);
+                },
+                beforeSend: function()
+                {
+                    $("#zone-upload").css("display","none");
+                    $(".subiendoimg").css("display","block"); // some code before request send if required like LOADING....
+                }
+            });
+            
+        }; 
     },
     test:function(){
         var text = $('#some-textarea').summernote('code');
@@ -20,6 +86,7 @@ var objblog = {
             var text = $('#some-textarea').summernote('code');
             $(".contenido").val(text);
         });
+        
     },
     buscatags:function(){
         var buscatags = ["uno","dos","tres"];
