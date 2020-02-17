@@ -30,6 +30,7 @@ var objblog = {
             $(this).css("display","none");
             $("#zone-upload").css("display","block");
             $( ".previewImg" ).remove();
+            $("#zone-upload").val(null);
         });
     },
     inputs: function(){
