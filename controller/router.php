@@ -16,6 +16,11 @@ $app->get('/nueva-nota/',function(){
     echo $render;
 });
 
+$app->get('/categorias/',function(){
+    $render = notaController::Categorias();
+    echo $render;
+});
+
 #POST
 $app->post('/publicar/',function(){
     var_dump($_POST);
