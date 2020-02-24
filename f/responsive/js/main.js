@@ -11,6 +11,9 @@ var objblog = {
         objblog.leyenda();
         objblog.fecha();
     },
+    test:function(){
+        console.log("Hola Mundo");
+    },
     fecha: function(){
         $('#datepicker').datepicker({
             
@@ -34,46 +37,48 @@ var objblog = {
         });
     },
     inputs: function(){
-        document.getElementById('zone-upload').onchange = function () {
-            console.log('Selected file: ' + this.value);
-
-            var data = new FormData();
-            var files = $('#zone-upload')[0].files[0];
-            data.append("image",files);
-            /* preview */
-            var preview = '';
-
-            $.ajax({
-                type: "POST",
-                url: url + 'upload_image',
-                data:  data,
-                enctype: 'multipart/form-data',
-                processData: false,  // tell jQuery not to process the data
-                contentType: false,   // tell jQuery not to set contentType
-                dataType: "json",
-                success: function(response)
-                {
-                    $(".pathImage").val(response.data[0].path);
-                    $(".subiendoimg").css("display","none");
-                    var urlimg = response.data[0].base+response.data[0].path+"-0x0.jpg";
-                    preview += '<div class="previewImg">';
-                    preview += '<img src="'+urlimg+'">';
-                    preview += '</div>';
-                    $("#upload-image-btn").append(preview);
-                    $(".btn-eliminarImg").css("display","block");
-                    $(".leyenda").css("margin-bottom","10px");
-                },
-                error: function(err){
-                    console.log(err);
-                },
-                beforeSend: function()
-                {
-                    $("#zone-upload").css("display","none");
-                    $(".subiendoimg").css("display","block"); // some code before request send if required like LOADING....
-                }
-            });
-            
-        }; 
+        if(document.getElementById('zone-upload')){
+            document.getElementById('zone-upload').onchange = function () {
+                console.log('Selected file: ' + this.value);
+    
+                var data = new FormData();
+                var files = $('#zone-upload')[0].files[0];
+                data.append("image",files);
+                /* preview */
+                var preview = '';
+    
+                $.ajax({
+                    type: "POST",
+                    url: url + 'upload_image',
+                    data:  data,
+                    enctype: 'multipart/form-data',
+                    processData: false,  // tell jQuery not to process the data
+                    contentType: false,   // tell jQuery not to set contentType
+                    dataType: "json",
+                    success: function(response)
+                    {
+                        $(".pathImage").val(response.data[0].path);
+                        $(".subiendoimg").css("display","none");
+                        var urlimg = response.data[0].base+response.data[0].path+"-0x0.jpg";
+                        preview += '<div class="previewImg">';
+                        preview += '<img src="'+urlimg+'">';
+                        preview += '</div>';
+                        $("#upload-image-btn").append(preview);
+                        $(".btn-eliminarImg").css("display","block");
+                        $(".leyenda").css("margin-bottom","10px");
+                    },
+                    error: function(err){
+                        console.log(err);
+                    },
+                    beforeSend: function()
+                    {
+                        $("#zone-upload").css("display","none");
+                        $(".subiendoimg").css("display","block"); // some code before request send if required like LOADING....
+                    }
+                });
+                
+            }; 
+        }
     },
     test:function(){
         var text = $('#some-textarea').summernote('code');

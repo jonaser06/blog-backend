@@ -2,7 +2,8 @@
 class notaController extends Core{
 
     public function NuevaNota(){
-        $twig = Core::init();
+        
+        $twig = $this->init();
 
         $data = [
             'home_url'=>HOME_DIR,
@@ -11,21 +12,10 @@ class notaController extends Core{
         ];
 
         $render = $twig->render('nueva.html', $data);
-        return $render;
+        echo $render;
         
     }
 
-    public function Categorias(){
-        $twig = Core::init();
-        $data = [
-            'home_url'=>HOME_DIR,
-            'base_url'=>BASE_DIR,
-            'section'=>'Categorias'
-        ];
-
-        $render = $twig->render('categorias.html', $data);
-        return $render;
-    }
 
 }
 

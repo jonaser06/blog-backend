@@ -7,18 +7,18 @@ $app = new \Slim\Slim();
 
 #ROUTES
 $app->get('/', function(){
-    $render = indexController::index();
-    echo $render;
+    $render = new indexController(); 
+    $render->index();
 });
 
 $app->get('/nueva-nota/',function(){
-    $render = notaController::NuevaNota();
-    echo $render;
+    $render = new notaController(); 
+    $render->NuevaNota();
 });
 
 $app->get('/categorias/',function(){
-    $render = notaController::Categorias();
-    echo $render;
+    $render = new categoriasController(); 
+    $render->Categorias();
 });
 
 #POST

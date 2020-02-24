@@ -3,7 +3,7 @@ class indexController extends Core{
 
     public function index(){
         
-        $twig = Core::init();
+        $twig = $this->init();
 
         $data = [
             'home_url'=>HOME_DIR,
@@ -12,7 +12,7 @@ class indexController extends Core{
         ];        
 
         $render = $twig->render('inicio.html', $data);
-        return $render;
+        echo $render;
         
     }
 
