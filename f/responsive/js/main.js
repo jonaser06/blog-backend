@@ -10,6 +10,21 @@ var objblog = {
         objblog.inputs();
         objblog.leyenda();
         objblog.fecha();
+        objblog.delCategory();
+    },
+    updateCategory:function(){
+
+    },
+    delCategory:function(){
+        $(".delete-category").on("click", function(){
+            var id = $(this).data("id");
+            $.ajax({
+                url: url+'categorias/delete/'+id,
+                type: 'POST'
+            }).done(function(data){
+                location.reload();
+            });
+        });
     },
     newcategory:function(){
         let title = document.getElementsByClassName("category-title")[0].value;
@@ -23,12 +38,11 @@ var objblog = {
         }
         $.ajax({
             url: url+'categorias',
-            type: 'post',
-            dataType: 'json',
-            contentType: 'application/json',
+            type: 'POST',
+            dataType: 'JSON',
             data: JSON.stringify(body)
         }).done(function(data){
-            console.log(data);
+            location.reload();
         });
     },
     fecha: function(){
@@ -96,11 +110,6 @@ var objblog = {
                 
             }; 
         }
-    },
-    test:function(){
-        var text = $('#some-textarea').summernote('code');
-        var contenido = $(".contenido").val(text);
-        console.log(text);
     },
     editor:function(){
         $('#some-textarea').summernote();
@@ -171,7 +180,6 @@ var objblog = {
                 url: url + 'generate_url',
                 dataType: 'JSON'
             }).done(function(data){
-                console.log(data);
                 $(".url").val(data.data);
             });
         }
@@ -185,9 +193,6 @@ var objblog = {
         }).done(function(data){
 
         });
-        /* tag.forEach(function(element){
-            console.log(element);
-        }); */
     }
 }
 
