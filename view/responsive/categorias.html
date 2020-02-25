@@ -10,7 +10,7 @@
                     <div class="content">
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-block btn-success">Nueva Categoría</button>
+                                <button type="submit" class="btn btn-block btn-success" data-toggle="modal" data-target="#modal-default">Nueva Categoría</button>
                             </div>
                         </div>
                     </div>
@@ -18,38 +18,70 @@
             </div>
             <br>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="card collapsed-card">
-                        <div class="card-header">
-                            <h3 class="card-title">Categorias</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <label>Nombre</label>
-                                    <input type="text" class="form-control" id="">
-                                    <label>Descripcion</label>
-                                    <input type="text" class="form-control" id="">
-                                    <label>Url</label>
-                                    <input type="text" class="form-control" id="">
-                                </div>    
-                                <div class="col-md-2">
-                                    <button class="btn btn-block btn-success">Guardar</button>
-                                    <button class="btn btn-block btn-danger">Eliminar</button>
+                {% if categorias %}
+                    {% for item in categorias %}
+                    <div class="col-md-12">
+                        <div class="card collapsed-card">
+                            <div class="card-header">
+                                <h3 class="card-title">{{ item.titulo }}</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            Footer
+                            <div class="card-body">
+                                <div class="row">
+                                    <form action="" method="GET">
+                                        <div class="col-md-10">
+                                            <label>Nombre</label>
+                                            <input type="text" class="form-control" id="" value="{{ item.titulo }}">
+                                            <label>Descripcion</label>
+                                            <input type="text" class="form-control" id="" value="{{ item.descripcion }}">
+                                            <label>Url</label>
+                                            <input type="text" class="form-control" id="" value="{{ item.url }}">
+                                        </div>    
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-block btn-success">Guardar</button>
+                                            <button class="btn btn-block btn-danger" data-id="{{ item.url }}">Eliminar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                Footer
+                            </div>
                         </div>
                     </div>
-                </div>
+                    {% endfor %}
+                {% endif %}
             </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Default Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="#" method="post" class="newcategory">
+                <div class="modal-body">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control category-title">
+                    <label>Descripcion</label>
+                    <input type="text" class="form-control category-descripcion">
+                    <label>Url</label>
+                    <input type="text" class="form-control category-url url">
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="objblog.newcategory();">Crear</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

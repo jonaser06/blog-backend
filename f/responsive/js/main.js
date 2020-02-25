@@ -11,8 +11,25 @@ var objblog = {
         objblog.leyenda();
         objblog.fecha();
     },
-    test:function(){
-        console.log("Hola Mundo");
+    newcategory:function(){
+        let title = document.getElementsByClassName("category-title")[0].value;
+        let descripcion = document.getElementsByClassName("category-descripcion")[0].value;
+        let urlC = document.getElementsByClassName("category-url")[0].value;
+        var body = {
+            "status":"true",
+            "descripcion":descripcion,
+            "titulo":title,
+            "url":urlC
+        }
+        $.ajax({
+            url: url+'categorias',
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(body)
+        }).done(function(data){
+            console.log(data);
+        });
     },
     fecha: function(){
         $('#datepicker').datepicker({
@@ -141,6 +158,13 @@ var objblog = {
     url:function(){
         $(".title").keyup(function(){
             let title = $(this).val();
+            urlajax(title);
+        });
+        $(".category-title").keyup(function(){
+            let title = $(this).val();
+            urlajax(title);
+        });
+        function urlajax(title){
             $.ajax({
                 data: JSON.stringify({ url : title}),
                 type: 'POST',
@@ -150,7 +174,7 @@ var objblog = {
                 console.log(data);
                 $(".url").val(data.data);
             });
-        });
+        }
     },
     btn:function(){
         let tag = $('#my-tag-list').tags().getTags();
