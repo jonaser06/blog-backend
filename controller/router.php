@@ -23,8 +23,7 @@ $app->get('/categorias/',function(){
 
 #POST
 $app->post('/publicar/',function(){
-    var_dump($_POST);
-    /* header('Content-Type: application/json');
+    header('Content-Type: application/json');
     if(isset($_POST['title']) && isset($_POST['bajada']) && isset($_POST['url']) && isset($_POST['tag']) && isset($_POST['contenido']) ):
         $compacto = new stdClass();
         $compacto->title        = $_POST['title'];
@@ -33,11 +32,14 @@ $app->post('/publicar/',function(){
         $compacto->tag          = $_POST['tag'];
         $compacto->contenido    = $_POST['contenido'];
         $compacto->categoria    = $_POST['categoria'];
+        $compacto->pathImage    = $_POST['pathImage'];
+        $compacto->leyendaImput = $_POST['leyendaImput'];
+        $compacto->date         = $_POST['date'];
         echo json_encode($compacto);
         exit;
     else:
         echo 'rellene todo los campos!';
-    endif; */
+    endif;
 });
 
 $app->run();

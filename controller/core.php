@@ -20,5 +20,6 @@ class Core {
         return $collection;
 
     }
+    
 }
 ?>

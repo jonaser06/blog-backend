@@ -19,6 +19,7 @@ require_once './controller/core.php';
 require_once './controller/home.controller.php';
 require_once './controller/nota.controller.php';
 require_once './controller/categorias.controller.php';
+require_once './controller/post.controller.php';
 require_once './controller/router.php';
 
 #model

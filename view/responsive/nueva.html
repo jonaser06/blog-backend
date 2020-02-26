@@ -105,10 +105,11 @@
                                 <div class="form-group">
                                     <select class="custom-select" required name="categoria">
                                         <option value="">Seleccione una categoría</option>
-                                        <option value="1">Categoria 1</option>
-                                        <option value="2">Categoria 2</option>
-                                        <option value="3">Categoria 3</option>
-                                        <option value="4">Categoria 4</option>
+                                        {% if categorias %}
+                                            {% for item in categorias %}
+                                            <option value="{{ item.cid }}">{{ item.titulo }}</option>
+                                            {% endfor %}
+                                        {% endif %}
                                     </select>
                                 </div>
                             </div>
