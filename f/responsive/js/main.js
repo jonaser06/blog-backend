@@ -11,6 +11,18 @@ var objblog = {
         objblog.leyenda();
         objblog.fecha();
         objblog.delCategory();
+        objblog.selectCategory();
+    },
+    selectCategory:function(){
+        if(document.getElementById('select-category')){
+            $("#select-category").change(function(){
+                var element = $(this).find('option:selected'); 
+                var cid = element.attr("cid");
+                var url = element.attr("url");
+                $(".cidcategoria").val(cid);
+                $(".urlcategoria").val(url);
+            });
+        }
     },
     updateCategory:function(){
 

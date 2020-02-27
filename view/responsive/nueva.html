@@ -103,14 +103,16 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <select class="custom-select" required name="categoria">
+                                    <select class="custom-select" required name="categoria" id="select-category">
                                         <option value="">Seleccione una categoría</option>
                                         {% if categorias %}
                                             {% for item in categorias %}
-                                            <option value="{{ item.cid }}">{{ item.titulo }}</option>
+                                            <option value="{{ item.titulo }}" cid="{{ item.cid }}" url="{{ item.url }}">{{ item.titulo }}</option>
                                             {% endfor %}
                                         {% endif %}
                                     </select>
+                                    <input type="hidden" name="cidcategoria" class="cidcategoria">
+                                    <input type="hidden" name="urlcategoria" class="urlcategoria">
                                 </div>
                             </div>
                         </div>

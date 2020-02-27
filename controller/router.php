@@ -26,17 +26,38 @@ $app->post('/publicar/',function(){
     header('Content-Type: application/json');
     if(isset($_POST['title']) && isset($_POST['bajada']) && isset($_POST['url']) && isset($_POST['tag']) && isset($_POST['contenido']) ):
         $compacto = new stdClass();
-        $compacto->title        = $_POST['title'];
+        $compacto->titulo       = $_POST['title'];
+        $compacto->titulo_seo   = $_POST['title'];
         $compacto->bajada       = $_POST['bajada'];
         $compacto->url          = $_POST['url'];
-        $compacto->tag          = $_POST['tag'];
         $compacto->contenido    = $_POST['contenido'];
-        $compacto->categoria    = $_POST['categoria'];
-        $compacto->pathImage    = $_POST['pathImage'];
-        $compacto->leyendaImput = $_POST['leyendaImput'];
-        $compacto->date         = $_POST['date'];
-        echo json_encode($compacto);
+        $compacto->categoria    = array(
+            "cid"           =>  $_POST['cidcategoria'],
+            "nombre"        =>  $_POST['categoria'],
+            "url"           =>  $_POST['urlcategoria'],
+        );
+        $compacto->img          = array(
+            "ext"           =>  'jpg',
+            "path"          =>  $_POST['pathImage'],
+            "description"   =>  $_POST['leyendaImput']
+        );
+        $compacto->video        = array(
+            "ext"           =>  "",
+            "path"          =>  "",
+            "description"   =>  ""
+        );
+        $compacto->publicidad   = "";
+        $compacto->fecha        = $_POST['date'];
+        $compacto->tags         = array(
+            "tid"           =>  "",
+            "nombre"        =>  $_POST['tag'],
+            "url"           =>  "",
+        );
+        $compacto->tipo         = "";
+        $post = new postController();
+        $post->postCompacto($compacto);
         exit;
+        echo json_encode($compacto);
     else:
         echo 'rellene todo los campos!';
     endif;

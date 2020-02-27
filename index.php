@@ -2,6 +2,7 @@
 
 define('BASE_DIR', 'f/responsive/');
 define('HOME_DIR', 'http://localhost/zox-bk');
+define('API_URL', 'http://localhost/api/');
 #libs
 require_once './vendor/autoload.php';
 
