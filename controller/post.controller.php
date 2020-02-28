@@ -10,9 +10,9 @@ class postController extends Core{
         $result = curl_exec($ch);
         curl_close($ch);
         if($result):
-            echo 'Publicado';
+            header('Location: '.HOME_DIR.'?message=true');
         else:
-            echo 'No publicado';
+            header('Location: '.HOME_DIR.'?message=false');
         endif;
     }
 
