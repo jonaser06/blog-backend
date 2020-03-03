@@ -21,6 +21,11 @@ $app->get('/categorias/',function(){
     $render->Categorias();
 });
 
+$app->get('/publicar/',function(){
+    header('Location: '.HOME_DIR);
+    exit;
+});
+
 #POST
 $app->post('/publicar/',function(){
     header('Content-Type: application/json');
