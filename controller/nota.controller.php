@@ -38,8 +38,6 @@ class notaController extends Core{
         echo $render;
         
     }
-
-
 }
 
 ?>

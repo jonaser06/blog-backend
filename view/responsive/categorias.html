@@ -31,20 +31,22 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="row">
+                                
+                                <form action="actualizar/{{item.cid}}" method="" class="updateCategory">
                                     <div class="col-md-10">
                                         <label>Nombre</label>
-                                        <input type="text" class="form-control" id="" value="{{ item.titulo }}">
+                                        <input type="text" class="form-control " name="update-title" id="update-title" value="{{ item.titulo }}">
                                         <label>Descripcion</label>
-                                        <input type="text" class="form-control" id="" value="{{ item.descripcion }}">
+                                        <input type="text" class="form-control " name="update-description" id="update-description" value="{{ item.descripcion }}">
                                         <label>Url</label>
-                                        <input type="text" class="form-control" id="" value="{{ item.url }}">
+                                        <input type="text" class="form-control " name="update-url" id="update-url" value="{{ item.url }}">
+
                                     </div>    
                                     <div class="col-md-2">
-                                        <button type="submit" class="btn btn-block btn-success">Guardar</button>
+                                        <button type="submit" class="btn btn-block btn-success update-category" data-id="{{ item.cid }}" >Guardar</button>
                                         <button class="btn btn-block btn-danger delete-category" data-id="{{ item.cid }}">Eliminar</button>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>

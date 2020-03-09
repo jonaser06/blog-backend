@@ -68,6 +68,16 @@ $app->post('/publicar/',function(){
     endif;
 });
 
+$app->post('/actualizar/:id',function(){
+     header('Content-Type: application/json');
+     if(isset($_POST['update-id']) && isset($_POST['update-title']) && isset($_POST['update-description']) && isset($_POST['update-url']) ):
+        $categoria = new stdClass();
+        $categoria->cid = ($_POST['update-id']);
+
+     else:
+     endif;
+});
+
 $app->run();
 
 ?>
