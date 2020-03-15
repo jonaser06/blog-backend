@@ -44,7 +44,7 @@ var objblog = {
             $.ajax({
                 url:url+'categorias/update/'+id,
                 type:'PUT',
-                dataType: 'jsonp',
+                dataType: 'json',
                 contentType:"application/json",
                 data: JSON.stringify(datos)
 
