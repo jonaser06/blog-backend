@@ -27,11 +27,12 @@ var objblog = {
     },
     updateCategory:function(){
         $('.update-category').on("click",function(){
+            
             var id = $(this).data("id");
             let title = document.getElementById("update-title").value;
-            let descripcion = document.getElementById("update-descripcion").value;
+            let descripcion = document.getElementById("update-description").value;
             let urlcat = document.getElementById("update-url").value;
-
+            console.log("update");
             var datos = {
                 "cid":id,
                 "status":"true",
