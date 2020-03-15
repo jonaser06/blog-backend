@@ -27,9 +27,9 @@ var objblog = {
     updateCategory:function(){
         $('.update-category').on("click",function(){
             var id = $(this).data("id");
-            let title = document.getElementById("category-title").value;
-            let descripcion = document.getElementById("category-descripcion").value;
-            let urlcat = document.getElementById("category-url").value;
+            let title = document.getElementById("update-title").value;
+            let descripcion = document.getElementById("update-descripcion").value;
+            let urlcat = document.getElementById("update-url").value;
 
             var datos = {
                 "cid":id,
