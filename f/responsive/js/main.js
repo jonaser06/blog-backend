@@ -11,6 +11,7 @@ var objblog = {
         objblog.leyenda();
         objblog.fecha();
         objblog.delCategory();
+        objblog.updateCategory();
         objblog.selectCategory();
     },
     selectCategory:function(){
