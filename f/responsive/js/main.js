@@ -45,17 +45,10 @@ var objblog = {
                 url:url+'categorias/update/'+id,
                 type:'PUT',
                 dataType: 'JSON',
-                data: JSON.stringify(datos),
-                success: function(response)
-                    {
-                        console.log("respuestaa",response)
-                        location.reload();
-                    },
-                error: function(err)
-                    {
-                        console.log(err);
-                    }
+                data: JSON.stringify(datos)
 
+            }).done(function(data){
+                location.reload();
             });
         });
 
