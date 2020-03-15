@@ -1,6 +1,4 @@
 <?php
-header('Access-Control-Allow-Origin:*'); 
-
 
 define('BASE_DIR', 'f/responsive/');
 define('HOME_DIR', 'http://localhost/zox-bk');

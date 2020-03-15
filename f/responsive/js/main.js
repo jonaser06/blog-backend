@@ -45,8 +45,7 @@ var objblog = {
                 url:url+'categorias/update/'+id,
                 type:'PUT',
                 dataType: 'JSON',
-                contentType:"application/json",
-                data: JSON.stringify(datos),
+                data: datos
 
             }).done(function(data){
                 location.reload();
