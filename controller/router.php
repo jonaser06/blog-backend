@@ -67,8 +67,12 @@ $app->post('/publicar/',function(){
         echo 'rellene todo los campos!';
     endif;
 });
-
-$app->post('/actualizar/:id',function(){
+$app->post('delete/:id',function($id){
+    $compacto = new Compacto;
+    $compacto->delete((int)$id);
+});
+#PUT
+$app->put('/actualizar/:id',function(){
      header('Content-Type: application/json');
      if(isset($_POST['update-id']) && isset($_POST['update-title']) && isset($_POST['update-description']) && isset($_POST['update-url']) ):
         $categoria = new stdClass();
@@ -76,6 +80,7 @@ $app->post('/actualizar/:id',function(){
 
      else:
      endif;
+
 });
 
 $app->run();
