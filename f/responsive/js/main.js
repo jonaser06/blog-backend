@@ -29,9 +29,9 @@ var objblog = {
         $('.update-category').on("click",function(){
             
             var id = $(this).data("id");
-            let title = document.getElementById("update-title").value;
-            let descripcion = document.getElementById("update-description").value;
-            let urlcat = document.getElementById("update-url").value;
+            let title = document.getElementByClassName("update-title")[id].value;
+            let descripcion = document.getElementByClassName("update-description")[id].value;
+            let urlcat = document.getElementByClassName("update-url")[id].value;
             console.log("update");
             var datos = {
                 "cid":id,
@@ -48,7 +48,7 @@ var objblog = {
                 data: JSON.stringify(datos),
                 success: function(response)
                     {
-                        console.log(response)
+                        console.log("respuestaa",response)
                         location.reload();
                     },
                 error: function(err)
