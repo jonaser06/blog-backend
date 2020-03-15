@@ -46,8 +46,7 @@ var objblog = {
                 type:'PUT',
                 dataType: 'JSON',
                 contentType:"application/json",
-                data: JSON.stringify(datos),
-                crossDomain:true
+                data: JSON.stringify(datos)
 
             }).done(function(data){
                 location.reload();
