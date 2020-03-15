@@ -45,7 +45,9 @@ var objblog = {
                 url:url+'categorias/update/'+id,
                 type:'PUT',
                 dataType: 'JSON',
-                data: JSON.stringify(datos)
+                contentType:"application/json",
+                data: JSON.stringify(datos),
+                crossDomain:true
 
             }).done(function(data){
                 location.reload();
