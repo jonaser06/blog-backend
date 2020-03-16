@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                
+                                <form action="categoriaUpdate" method="POST">
                                     <div class="col-md-10">
                                         <label>Nombre</label>
                                         <input type="text" class="form-control update-title " name="update-title"  value="{{ item.titulo }}">
@@ -39,13 +39,13 @@
                                         <input type="text" class="form-control update-description" name="update-description"  value="{{ item.descripcion }}">
                                         <label>Url</label>
                                         <input type="text" class="form-control update-url" name="update-url"  value="{{ item.url }}">
-
+                                        <input type="hidden" name="category-id" value ="{{ item.cid }}">
                                     </div>    
                                     <div class="col-md-2">
-                                        <button type="" class="btn btn-block btn-success update-category" data-id="{{ item.cid }}" >Guardar</button>
+                                        <button type="submit" class="btn btn-block btn-success update-category">Guardar</button>
                                         <button class="btn btn-block btn-danger delete-category" data-id="{{ item.cid }}">Eliminar</button>
                                     </div>
-                                
+                                </form>
                             </div>
                         </div>
                     </div>

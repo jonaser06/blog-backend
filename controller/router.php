@@ -21,12 +21,30 @@ $app->get('/categorias/',function(){
     $render->Categorias();
 });
 
+$app->post('/categoriaUpdate/',function(){
+
+    if( isset($_POST['update-title']) && isset($_POST['update-description']) && isset($_POST['update-url']) && isset($_POST['category-id']) ):
+        $data = [
+            "category-id"        => $_POST['category-id'],
+            "title"              => $_POST['update-title'],
+            "update-description" => $_POST['update-description'],
+            "update-url"         => $_POST['update-url']
+        ];
+
+        $render = new categoriasController(); 
+        $render->UpdateCategorias($data);
+    else:
+        header('Location: '.HOME_DIR);
+        exit;
+    endif;
+    
+});
+
 $app->get('/publicar/',function(){
     header('Location: '.HOME_DIR);
     exit;
 });
 
-#POST
 $app->post('/publicar/',function(){
     header('Content-Type: application/json');
     if(isset($_POST['title']) && isset($_POST['bajada']) && isset($_POST['url']) && isset($_POST['tag']) && isset($_POST['contenido']) ):
@@ -71,7 +89,7 @@ $app->post('delete/:id',function($id){
     $compacto = new Compacto;
     $compacto->delete((int)$id);
 });
-#PUT
+
 $app->put('/actualizar/:id',function(){
      header('Content-Type: application/json');
      if(isset($_POST['update-id']) && isset($_POST['update-title']) && isset($_POST['update-description']) && isset($_POST['update-url']) ):

@@ -1,5 +1,5 @@
-//const url = 'http://localhost/api/';
-const url = 'http://api.bitsforcode.xyz/';
+const url = 'http://localhost/api/';
+//const url = 'http://api.bitsforcode.xyz/';
 
 var objblog = {
     init:function(){
@@ -26,32 +26,7 @@ var objblog = {
         }
     },
     updateCategory:function(){
-        $('.update-category').on("click",function(){
-            
-            var id = $(this).data("id");
-            let title = document.getElementsByClassName("update-title")[id-1].value;
-            let descripcion = document.getElementsByClassName("update-description")[id-1].value;
-            let urlcat = document.getElementsByClassName("update-url")[id-1].value;
-            console.log("update");
-            var datos = {
-                "cid":id,
-                "status":"true",
-                "descripcion":descripcion,
-                "title":title,
-                "url":urlcat
-            }
-
-            $.ajax({
-                url:url+'categorias/update/'+id,
-                type:'PUT',
-                dataType: 'JSON',
-                data: datos
-
-            }).done(function(data){
-                location.reload();
-            });
-        });
-
+        
     },
     delCategory:function(){
         $(".delete-category").on("click", function(){
@@ -69,7 +44,6 @@ var objblog = {
         let descripcion = document.getElementsByClassName("category-descripcion")[0].value;
         let urlC = document.getElementsByClassName("category-url")[0].value;
         var body = {
-            "status":"true",
             "descripcion":descripcion,
             "titulo":title,
             "url":urlC

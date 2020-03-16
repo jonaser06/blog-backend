@@ -9,33 +9,29 @@ class categoriasController extends Core{
 
         $db = self::$param;
         $collection = self::$category;
-        $categorias = [];
 
-        $twig = $this->init();
-        $client = $this->mongoConnet();
-        $client = $client->$db->$collection;
-        $getAll = $client->find();
-        
-        foreach($getAll as $categ){
-            $response = [
-                "cid"           => $categ["cid"],
-                "status"        => $categ["status"],
-                "descripcion"   => $categ["descripcion"],
-                "titulo"        => $categ["titulo"],
-                "url"           => $categ["url"]
-            ];
-            array_push($categorias,$response);
-        }
-        
+        $twig = $this->init();        
+        $api = API_URL_PROD.'categorias';
+        $ch = curl_init($api);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $response = json_decode($response);
+
         $data = [
             'home_url'=>HOME_DIR,
             'base_url'=>BASE_DIR,
             'section'=>'Categorias',
-            'categorias'=>$categorias
+            'categorias'=>$response->data
         ];
 
         $render = $twig->render('categorias.html', $data);
         echo $render;
+    }
+
+    public function UpdateCategorias($data){
+        echo json_encode($data);
+        exit;
     }
 
 

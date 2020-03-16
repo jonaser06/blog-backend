@@ -7,7 +7,7 @@ class postController extends Core{
         $ch = curl_init($api);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-         $result= curl_exec($ch);
+        $result= curl_exec($ch);
         curl_close($ch);
         if($result):
             header('Location: '.HOME_DIR.'?message=true');
