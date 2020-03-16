@@ -26,37 +26,7 @@ var objblog = {
         }
     },
     updateCategory:function(){
-<<<<<<< HEAD
         
-=======
-        $('.update-category').on("click",function(){
-            
-            var id = $(this).data("id");
-            let title = document.getElementsByClassName("update-title")[id-1].value;
-            let descripcion = document.getElementsByClassName("update-description")[id-1].value;
-            let urlcat = document.getElementsByClassName("update-url")[id-1].value;
-            console.log("update");
-            var datos = {
-                "cid":id,
-                "status":"true",
-                "descripcion":descripcion,
-                "title":title,
-                "url":urlcat
-            }
-
-            $.ajax({
-                url:url+'categorias/update/'+id,
-                method:"PUT",
-                type:'PUT',
-                dataType: 'JSON',
-                data: datos
-
-            }).done(function(data){
-                location.reload();
-            });
-        });
-
->>>>>>> 9b74a031a848296abcc80002fae65f559b43b825
     },
     delCategory:function(){
         $(".delete-category").on("click", function(){
