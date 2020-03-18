@@ -1,5 +1,5 @@
-const url = 'http://localhost/api/';
-//const url = 'http://api.bitsforcode.xyz/';
+// const url = 'http://localhost/api/';
+const url = 'http://api.bitsforcode.xyz/';
 
 var objblog = {
     init:function(){
