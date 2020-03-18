@@ -1,9 +1,12 @@
 <?php
 
 define('BASE_DIR', 'f/responsive/');
-define('HOME_DIR', 'http://localhost/zox-bk');
-
+# Entorno local
+//define('HOME_DIR', 'http://localhost/zox-bk');
 //define('API_URL', 'http://localhost/api/');
+
+# Entorno de Prod
+define('HOME_DIR', 'http://www.bitsforcode.xyz');
 define('API_URL', 'http://api.bitsforcode.xyz/');
 
 #libs
