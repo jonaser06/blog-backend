@@ -23,19 +23,15 @@ $app->get('/categorias/',function(){
 
 $app->post('/categoriaUpdate/',function(){
 
-    if( isset($_POST['update-title']) && isset($_POST['update-description']) && isset($_POST['update-url']) && isset($_POST['category-id']) ):
+    if( isset($_POST['update-title']) && isset($_POST['update-description']) && isset($_POST['category-id']) ):
         $data = [
-            "category-id"        => $_POST['category-id'],
-            "title"              => $_POST['update-title'],
-            "update-description" => $_POST['update-description'],
-            "update-url"         => $_POST['update-url']
+            "cid"         => (int)$_POST['category-id'],
+            "titulo"      => $_POST['update-title'],
+            "descripcion" => $_POST['update-description']
         ];
 
         $render = new categoriasController(); 
         $render->UpdateCategorias($data);
-    else:
-        header('Location: '.HOME_DIR);
-        exit;
     endif;
     
 });

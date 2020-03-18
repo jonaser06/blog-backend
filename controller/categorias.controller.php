@@ -11,7 +11,7 @@ class categoriasController extends Core{
         $collection = self::$category;
 
         $twig = $this->init();        
-        $api = API_URL_PROD.'categorias';
+        $api = API_URL.'categorias';
         $ch = curl_init($api);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
@@ -30,8 +30,23 @@ class categoriasController extends Core{
     }
 
     public function UpdateCategorias($data){
-        echo json_encode($data);
-        exit;
+        $id =  $data['cid'];
+        $data = json_encode($data);
+        $api = API_URL.'categorias/update/'.$id;
+        $ch = curl_init($api);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        $result= curl_exec($ch);
+        curl_close($ch);
+        if($result):
+            header('Location: '.HOME_DIR.'/categorias?message=true');
+            exit;
+        else:
+            header('Location: '.HOME_DIR.'/categorias?message=false');
+            exit;
+        endif;
+        
     }
 
 

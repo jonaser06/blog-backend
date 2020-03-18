@@ -38,8 +38,9 @@
                                         <label>Descripcion</label>
                                         <input type="text" class="form-control update-description" name="update-description"  value="{{ item.descripcion }}">
                                         <label>Url</label>
-                                        <input type="text" class="form-control update-url" name="update-url"  value="{{ item.url }}">
+                                        <input type="text" class="form-control update-url" name="update-url"  value="{{ item.url }}" disabled>
                                         <input type="hidden" name="category-id" value ="{{ item.cid }}">
+                                        <br>
                                     </div>    
                                     <div class="col-md-2">
                                         <button type="submit" class="btn btn-block btn-success update-category">Guardar</button>
