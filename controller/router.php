@@ -21,6 +21,11 @@ $app->get('/categorias/',function(){
     $render->Categorias();
 });
 
+$app->get('/notas/',function(){
+    $render = new postController(); 
+    $render->getCompacto();
+});
+
 $app->post('/categoriaUpdate/',function(){
 
     if( isset($_POST['update-title']) && isset($_POST['update-description']) && isset($_POST['category-id']) ):
