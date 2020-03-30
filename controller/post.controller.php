@@ -10,9 +10,13 @@ class postController extends Core{
         $response = curl_exec( $ch );
         $httpCode = curl_getinfo( $ch ,CURLINFO_HTTP_CODE );
         curl_close( $ch );
-        
+        $data = [
+            'home_url'=>HOME_DIR,
+            'base_url'=>BASE_DIR,
+            'section'=>'Notas',
+            'notas'=>$response->data
+        ];
         if( $httpCode === 200 ):
-            $data = json_decode( json_encode(json_decode( $response )->data), true );       
             $render = $twig->render( 'notas.html' , $data );
             echo $render;
         else:
