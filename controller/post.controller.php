@@ -4,7 +4,7 @@ class postController extends Core{
     public function getCompacto(){   
 
         $twig = $this->init();        
-        $api = API_URL.'notas';
+        $api = API_URL.'compacto';
         $ch = curl_init( $api );
         curl_setopt( $ch , CURLOPT_RETURNTRANSFER, 1 );
         $response = curl_exec( $ch );
