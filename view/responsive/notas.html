@@ -18,7 +18,8 @@
             </div>
             <br>
             <div class="row">
-                    {% for item in notas if notas is defined %}
+                {% if notas %}
+                    {% for item in notas %}
                     <div class="col-md-8">
                         <div class="card card-primary">
                             <div class="card-header">
@@ -127,6 +128,7 @@
                         </div>
                     </div>
                     {% endfor %}
+                 {% endif %}   
             </div>
         </div>
     </div>
