@@ -16,6 +16,11 @@ $app->get('/nueva-nota/',function(){
     $render->NuevaNota();
 });
 
+$app->get('/listaNotas/',function(){
+    $render = new notaController(); 
+    $render->ListaNota();
+});
+
 $app->get('/categorias/',function(){
     $render = new categoriasController(); 
     $render->Categorias();
@@ -87,6 +92,7 @@ $app->post('/publicar/',function(){
         echo 'rellene todo los campos!';
     endif;
 });
+
 $app->post('delete/:id',function($id){
     $compacto = new Compacto;
     $compacto->delete((int)$id);

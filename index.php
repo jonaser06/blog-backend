@@ -8,6 +8,7 @@ define('BASE_DIR', 'f/responsive/');
 # Entorno de Prod
 define('HOME_DIR', 'http://www.bitsforcode.xyz');
 define('API_URL', 'http://api.bitsforcode.xyz/');
+define('CDN_MEDIA', 'http://api.bitsforcode.xyz/media/get-image');
 
 #libs
 require_once './vendor/autoload.php';

@@ -25,6 +25,30 @@ class notaController extends Core{
         echo $render;
         
     }
+
+    public function ListaNota(){
+        
+        $db = self::$param;
+        $collection = self::$category;
+        $categorias = [];
+
+        $twig = $this->init();
+        $categorias = $this->getCategoria();
+        $compacto = $this->getCompacto();
+
+        $data = [
+            'home_url'=>HOME_DIR,
+            'base_url'=>BASE_DIR,
+            'cdn'=> CDN_MEDIA,
+            'section' =>'Nueva Nota',
+            'data'    => $compacto->data,
+            'categorias'=>$categorias->data,
+        ];
+
+        $render = $twig->render('lista.html', $data);
+        echo $render;
+        
+    }
 }
 
 ?>

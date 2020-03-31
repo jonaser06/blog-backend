@@ -20,8 +20,19 @@ class Core {
         return $collection;
 
     }
+
     public static function getCategoria(){    
         $api = API_URL.'categorias';
+        $ch = curl_init($api);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $response = json_decode($response);
+        return $response;
+    }
+    
+    public static function getCompacto($page = 1){    
+        $api = API_URL.'compacto';
         $ch = curl_init($api);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);

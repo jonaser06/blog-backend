@@ -1,0 +1,48 @@
+{% extends "tpl/layout.html" %}
+{% block content %}
+<div class="content-wrapper">
+  {% set title = 'Lista de Notas' %}
+  {% include "tpl/content-header.html" %}
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="timeline-a">
+              <div>
+                {% if data %}
+                    {% for item in data %}
+                        <div class="timeline-item nota_item">
+                            <div class="image_nota">
+                                <img src="{{ cdn }}/{{ item.img.path}}-160x140.{{ item.img.ext}}" alt="{{ item.titulo}}">
+                            </div>
+                            <div class="content_nota">
+                                <h4 class="item_nota_title">{{ item.titulo | slice(0, 80)}}</h4>
+                                <hr class="nota_linea">
+                                <div class="timeline-body">
+                                    <div class="item_nota_categoria">
+                                        Categoria : aaaa
+                                    </div>
+                                    <div class="item_nota_fecha">
+                                        Fecha : aaaa
+                                    </div>
+                                    <div class="item_nota_estado">
+                                        Estado : asdasdas
+                                    </div>
+                                    <div class="item_nota_url">
+                                        Url : asdasdas <span class="fas fa-link item_link"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  {% endblock content %}

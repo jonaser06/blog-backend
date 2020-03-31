@@ -97,3 +97,37 @@
 .timeline-a>div>.timeline-item>.timeline-footer>a {
     color: #fff;
 }
+.nota_item{
+    height: 150px;
+    margin-bottom: 10px;
+}
+.image_nota{
+    float: left;
+    margin: 5px;
+    width: 160px;
+    height: 140px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.content_nota{
+    width: 81%;
+    float: right;
+}
+.item_nota_title{
+    margin: 0px;
+}
+.nota_linea{
+    margin: 0px 0px 5px;
+
+}
+.item_link{
+    margin-left: 15px;
+}
+.item_nota_url{
+    display: inline-block;
+    margin-top: 4px;
+    padding: 5px;
+    border-radius: 15px;
+    background: #ccc;
+}

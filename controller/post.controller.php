@@ -1,7 +1,7 @@
 <?php
 class postController extends Core{
 
-    public function getCompacto(){   
+    /* public function getCompacto(){   
 
         $twig = $this->init();        
         $api = API_URL.'compacto';
@@ -23,7 +23,7 @@ class postController extends Core{
             $render = $twig->render('notas.html', []);
             echo $render;       
          endif;
-    }
+    } */
 
     public static function postCompacto($data){
         $data = json_encode( $data );
