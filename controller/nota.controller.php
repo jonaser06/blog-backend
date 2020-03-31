@@ -12,26 +12,13 @@ class notaController extends Core{
         $categorias = [];
 
         $twig = $this->init();
-        $client = $this->mongoConnet();
-        $client = $client->$db->$collection;
-        $getAll = $client->find();
-
-        foreach($getAll as $categ){
-            $response = [
-                "cid"           => $categ["cid"],
-                "status"        => $categ["status"],
-                "descripcion"   => $categ["descripcion"],
-                "titulo"        => $categ["titulo"],
-                "url"           => $categ["url"]
-            ];
-            array_push($categorias,$response);
-        }
+        $categorias = $this->getCategoria();
 
         $data = [
             'home_url'=>HOME_DIR,
             'base_url'=>BASE_DIR,
             'section'=>'Nueva Nota',
-            'categorias'=>$categorias
+            'categorias'=>$categorias->data
         ];
 
         $render = $twig->render('nueva.html', $data);
